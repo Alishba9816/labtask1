@@ -22,11 +22,11 @@ def counts1s():
         for j in range(clmns):
             if arr[i][j] == 1:
                 count += 1
-            print(arr[i][j], end=" ")
+            #print(arr[i][j], end=" ")
         c_arr.append(count)
         #prints array
         print()
-        print(count)
+        print(f'number of 1s in row {arr[i]} is "{count}" ')
 
 
 counts1s()
