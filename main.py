@@ -2,6 +2,7 @@ import random
 rows = int(input("Enter size of rows\n"))
 clmns = int(input("Enter number of columns\n"))
 arr = []
+toprows=5
 
 # gets random number in array
 def get2dArrayRand():
@@ -38,8 +39,8 @@ def counts1s():
         print()
         print(f'number of 1s in row {arr[i]} is "{count}" ')
         countSort(c_arr, rows, clmns)
+c_arr.sort()
     
-
 
 #sorts row and used in counts1s()
 def countSort(c_arr, rows, clmns):
@@ -59,12 +60,19 @@ def display_sorted_rows():
     print(f'\n Row {c} is {i} \n')
 
 
+def display_top():
+  c=0
+  print(f'\n \n top {toprows} rows are:')
+  for i in arr and range(0,toprows):
+    c += 1
+    print(f'\n Row {c} is {arr[i]} with number of ones {c_arr[i]} \n')
 #def arrSort(c_arr, arr):
 #get_2d_array()
 #countSort(c_arr, rows, clmns)
 #arrSort(c_arr, arr)
 get2dArrayRand()
 counts1s()
-display_sorted_rows()
+#display_sorted_rows()
+display_top()
 
  
