@@ -3,6 +3,7 @@ rows = int(input("Enter size of rows\n"))
 clmns = int(input("Enter number of columns\n"))
 arr = []
 toprows=5
+c=0
 
 # gets random number in array
 def get2dArrayRand():
@@ -27,9 +28,10 @@ c_arr=[]
 
 
 #counts and sort rows
-def counts1s():
+def counts1s(c):
     for i in range(rows):
         count = 0
+        c +=1
         for j in range(clmns):
             if arr[i][j] == 1:
                 count += 1
@@ -37,7 +39,7 @@ def counts1s():
         c_arr.append(count)
         #prints array
         print()
-        print(f'number of 1s in row {arr[i]} is "{count}" ')
+        print(f'Row{c}) {arr[i]} --> ones "{count}" ')
         countSort(c_arr, rows, clmns)
 c_arr.sort()
     
@@ -54,25 +56,36 @@ def countSort(c_arr, rows, clmns):
 
 def display_sorted_rows():
   c=0
-  print('\n \n Sorted rows are:')
+  print('\n \n SORTED ROWS ARE:')
   for i in arr:
     c += 1
     print(f'\n Row {c} is {i} \n')
 
 
-def display_top():
-  c=0
-  print(f'\n \n top {toprows} rows are:')
+def display_top(c):
+  print(f'\n \n TOP {toprows} ROWS ARE:')
   for i in arr and range(0,toprows):
     c += 1
-    print(f'\n Row {c} is {arr[i]} with number of ones {c_arr[i]} \n')
+    print(f'\n Row{c}) {arr[i]} --> ones "{c_arr[i]}" \n')
+
+
+def mutation(clmn):
+  print("\n APPLYING MUTATION ON ROW 1 \n")
+  r= random.randint(0,clmns)
+  print(f'Random number selected was "{arr[0][r]}" so Row1 is\n')
+  if arr[0][r]<=5:
+    arr[0][r]=1
+  if arr[0][r]>5:
+    arr[0][r]=9
+  print(f'{arr[0]}')
+
+
 #def arrSort(c_arr, arr):
 #get_2d_array()
 #countSort(c_arr, rows, clmns)
 #arrSort(c_arr, arr)
 get2dArrayRand()
-counts1s()
+counts1s(c)
 #display_sorted_rows()
-display_top()
-
- 
+display_top(c)
+mutation(clmns)
