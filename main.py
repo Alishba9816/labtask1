@@ -3,7 +3,7 @@ rows = int(input("Enter size of rows\n"))
 clmns = int(input("Enter number of columns\n"))
 arr = []
 
-#gets values from user
+# gets random number in array
 def get2dArrayRand():
   for i in range (0,rows):
       a=[]
@@ -12,7 +12,7 @@ def get2dArrayRand():
       arr.append(a)
   
 
-
+#gets values from user
 def get_2d_array():
     print("Enter numbers in rows and columns")
     for i in range(0, rows):
@@ -25,7 +25,7 @@ def get_2d_array():
 c_arr=[]
 
 
-
+#counts and sort rows
 def counts1s():
     for i in range(rows):
         count = 0
@@ -37,34 +37,34 @@ def counts1s():
         #prints array
         print()
         print(f'number of 1s in row {arr[i]} is "{count}" ')
+        countSort(c_arr, rows, clmns)
+    
 
 
-def swap(arr1,arr2):
-  temp=arr1
-  arr1=arr2
-  arr2=temp
-  print(arr1, arr2) 
-
-
+#sorts row and used in counts1s()
 def countSort(c_arr, rows, clmns):
   #l=list(map(int,input("Enter Numbers:").split()))
   for i in range(0,len(c_arr)-1):
     for j in range(0,len(c_arr)-1):
         if(c_arr[j+1]>c_arr[j]):
             c_arr[j],c_arr[j+1]=c_arr[j+1],c_arr[j]
-  print(c_arr)
+            arr[j],arr[j+1]=arr[j+1],arr[j]
 
 
-def arrSort(c_arr, arr):
-  for i in range(0,len(c_arr)-1):
-    for j in range(0,len(c_arr)-1):
-      if(c_arr[j+1]>c_arr[j]):
-        arr[i],arr[i+1]=arr[i+1],arr[i]
-        print(f'arrays are{arr[i]}')
-get2dArrayRand()
+def display_sorted_rows():
+  c=0
+  print('\n \n Sorted rows are:')
+  for i in arr:
+    c += 1
+    print(f'\n Row {c} is {i} \n')
+
+
+#def arrSort(c_arr, arr):
 #get_2d_array()
-counts1s()
 #countSort(c_arr, rows, clmns)
-arrSort(c_arr, arr)
+#arrSort(c_arr, arr)
+get2dArrayRand()
+counts1s()
+display_sorted_rows()
 
-
+ 
