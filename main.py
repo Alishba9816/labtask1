@@ -5,6 +5,7 @@ clmns = int(input("Enter number of columns\n"))
 arr = []
 toprows = 5
 c = 0
+newrows =17
 
 
 # gets random number in array
@@ -114,15 +115,35 @@ def inheritence(heads, tails,c):
         print(f'New Row{c}) --> {i}')
 
 arr2=[]
-def scndArr(arr2,c):
+d=0
+f=0
+def scndArr(arr2,c,c_arr,d,f):
+    print('\n\n')
+    print('*'*120)
     print('\n\n\n NEW ARRAYS ARE:')
     arr2=mutationRow+inhetnc
     for i in arr2:
-      c +=1
-      print(f'{c} --> {i}')
-    #counts1s(c, arr2, rows, clmns)
-    #display_top(c, arr2)
-   # mutation(clmns, arr2)
+      f +=1
+      print(f'{f} --> {i}')
+    
+    for i in range(newrows):
+        count = 0
+        d += 1
+        for j in range(clmns):
+            if arr2[i][j] == 1:
+                count += 1
+            # print(arr[i][j], end=" ")
+        c_arr.append(count)
+        # prints array
+        print()
+        print(f'Row{d}) {arr2[i]} --> ones "{count}" ')
+        for i in range(0, 17 - 1):
+          for j in range(0, 17 - 1):
+            if (c_arr[j + 1] > c_arr[j]):
+                c_arr[j], c_arr[j + 1] = c_arr[j + 1], c_arr[j]
+                arr2[j], arr2[j + 1] = arr2[j + 1], arr2[j]
+    display_top(c, arr2)
+    mutation(clmns, arr2, r)
 
 # def arrSort(c_arr, arr):
 # get_2d_array()
@@ -135,6 +156,6 @@ display_top(c, arr)
 mutation(clmns, arr, r)
 spit_array()
 inheritence(heads, tails, c)
-scndArr(arr2,c)
+scndArr(arr2,c,c_arr,d,f)
 
 
